@@ -253,7 +253,7 @@ commands(Autopilot_Interface &api)
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
 	
-	for (int i = 1; i <= 300; i++)
+	for (int i = 1; i <= 30000; i++)  // Runtime of 5 minutes (30000 ms)
 	{
 		printf("acc_x =  % f \n", imu.xacc); // (m/s^2)
 		printf("acc_y =  % f \n", imu.yacc);
