@@ -610,18 +610,18 @@ start()
 	// In which case set the id's manually.
 
 	// System ID
-	if ( not system_id )
+	//if ( not system_id )
 	{
-		system_id = current_messages.sysid;
+		//system_id = current_messages.sysid;
 		//printf("GOT VEHICLE SYSTEM ID: %i\n", system_id );
 	}
 
 	// Component ID
-	if ( not autopilot_id )
+	//if ( not autopilot_id )
 	{
-		autopilot_id = current_messages.compid;
-		printf("GOT AUTOPILOT COMPONENT ID: %i\n", autopilot_id);
-		printf("\n");
+		//autopilot_id = current_messages.compid;
+		//printf("GOT AUTOPILOT COMPONENT ID: %i\n", autopilot_id);
+		//printf("\n");
 	}
 
 
