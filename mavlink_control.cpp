@@ -252,17 +252,24 @@ commands(Autopilot_Interface &api)
 	mavlink_highres_imu_t imu = messages.highres_imu;
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
-	printf("acc_x =  % f \n", imu.xacc); // (m/s^2)
-	printf("acc_y =  % f \n", imu.yacc);
-	printf("acc_z =  % f \n", imu.zacc); 
+	for (i = 1; i <= 300; i++)
+	{
+		printf("acc_x =  % f \n", imu.xacc); // (m/s^2)
+		printf("acc_y =  % f \n", imu.yacc);
+		printf("acc_z =  % f \n", imu.zacc); 
 	
-	printf("gyro_x = % f \n", imu.xgyro); // (rad/s)
-	printf("gyro_y = % f \n", imu.ygyro);
-	printf("gyro_z = % f \n", imu.zgyro);
+		printf("gyro_x = % f \n", imu.xgyro); // (rad/s)
+		printf("gyro_y = % f \n", imu.ygyro);
+		printf("gyro_z = % f \n", imu.zgyro);
 	
-	printf("mag_x = % f \n", imu.xmag); // (Ga)
-	printf("mag_y = % f \n", imu.ymag);
-	printf("mag_z = % f \n", imu.zmag);
+		printf("mag_x = % f \n", imu.xmag); // (Ga)
+		printf("mag_y = % f \n", imu.ymag);
+		printf("mag_z = % f \n", imu.zmag);
+		
+		usleep(10);
+	}
+		
+	
 	
 	//printf("    baro:        %f (mBar) \n"  , imu.abs_pressure);
 	//printf("    altitude:    %f (m) \n"     , imu.pressure_alt);
