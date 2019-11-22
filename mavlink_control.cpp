@@ -185,7 +185,7 @@ commands(Autopilot_Interface &api)
 	// --------------------------------------------------------------------------
 	//   SEND OFFBOARD COMMANDS
 	// --------------------------------------------------------------------------
-	printf("SEND OFFBOARD COMMANDS\n");
+	//printf("SEND OFFBOARD COMMANDS\n");
 
 	// initialize command data strtuctures
 	mavlink_set_position_target_local_ned_t sp;
@@ -216,14 +216,14 @@ commands(Autopilot_Interface &api)
 	// NOW pixhawk will try to move
 
 	// Wait for 8 seconds, check position
-	for (int i=0; i < 8; i++)
+	//for (int i=0; i < 8; i++)
 	{
 		mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
 		printf("%i CURRENT POSITION XYZ = [ % .4f , % .4f , % .4f ] \n", i, pos.x, pos.y, pos.z);
 		sleep(1);
 	}
 
-	printf("\n");
+	//printf("\n");
 
 
 	// --------------------------------------------------------------------------
@@ -238,26 +238,26 @@ commands(Autopilot_Interface &api)
 	// --------------------------------------------------------------------------
 	//   GET A MESSAGE
 	// --------------------------------------------------------------------------
-	printf("READ SOME MESSAGES \n");
+	//printf("READ SOME MESSAGES \n");
 
 	// copy current messages
 	Mavlink_Messages messages = api.current_messages;
 
 	// local position in ned frame
-	mavlink_local_position_ned_t pos = messages.local_position_ned;
-	printf("Got message LOCAL_POSITION_NED (spec: https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED)\n");
-	printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
+	//mavlink_local_position_ned_t pos = messages.local_position_ned;
+	//printf("Got message LOCAL_POSITION_NED (spec: https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED)\n");
+	//printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
 
 	// hires imu
 	mavlink_highres_imu_t imu = messages.highres_imu;
-	printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
-	printf("    ap time:     %lu \n", imu.time_usec);
+	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
+	//printf("    ap time:     %lu \n", imu.time_usec);
 	printf("    acc  (NED):  % f % f % f (m/s^2)\n", imu.xacc , imu.yacc , imu.zacc );
 	printf("    gyro (NED):  % f % f % f (rad/s)\n", imu.xgyro, imu.ygyro, imu.zgyro);
 	printf("    mag  (NED):  % f % f % f (Ga)\n"   , imu.xmag , imu.ymag , imu.zmag );
-	printf("    baro:        %f (mBar) \n"  , imu.abs_pressure);
-	printf("    altitude:    %f (m) \n"     , imu.pressure_alt);
-	printf("    temperature: %f C \n"       , imu.temperature );
+	//printf("    baro:        %f (mBar) \n"  , imu.abs_pressure);
+	//printf("    altitude:    %f (m) \n"     , imu.pressure_alt);
+	//printf("    temperature: %f C \n"       , imu.temperature );
 
 	printf("\n");
 
