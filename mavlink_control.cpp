@@ -252,7 +252,8 @@ commands(Autopilot_Interface &api)
 	mavlink_highres_imu_t imu = messages.highres_imu;
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
-	for (i = 1; i <= 300; i++)
+	
+	for (int i = 1; i <= 300; i++)
 	{
 		printf("acc_x =  % f \n", imu.xacc); // (m/s^2)
 		printf("acc_y =  % f \n", imu.yacc);
