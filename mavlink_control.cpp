@@ -218,9 +218,9 @@ commands(Autopilot_Interface &api)
 	// Wait for 8 seconds, check position
 	//for (int i=0; i < 8; i++)
 	{
-		mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
-		printf("%i CURRENT POSITION XYZ = [ % .4f , % .4f , % .4f ] \n", i, pos.x, pos.y, pos.z);
-		sleep(1);
+		//mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
+		//printf("%i CURRENT POSITION XYZ = [ % .4f , % .4f , % .4f ] \n", i, pos.x, pos.y, pos.z);
+		//sleep(1);
 	}
 
 	//printf("\n");
