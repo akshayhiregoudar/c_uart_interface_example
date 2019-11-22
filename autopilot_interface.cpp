@@ -91,7 +91,7 @@ set_position(float x, float y, float z, mavlink_set_position_target_local_ned_t 
 	sp.y   = y;
 	sp.z   = z;
 
-	printf("POSITION SETPOINT XYZ = [ %.4f , %.4f , %.4f ] \n", sp.x, sp.y, sp.z);
+	//printf("POSITION SETPOINT XYZ = [ %.4f , %.4f , %.4f ] \n", sp.x, sp.y, sp.z);
 
 }
 
@@ -159,7 +159,7 @@ set_yaw(float yaw, mavlink_set_position_target_local_ned_t &sp)
 
 	sp.yaw  = yaw;
 
-	printf("POSITION SETPOINT YAW = %.4f \n", sp.yaw);
+	//printf("POSITION SETPOINT YAW = %.4f \n", sp.yaw);
 
 }
 
@@ -460,7 +460,7 @@ enable_offboard_control()
 	// Should only send this command once
 	if ( control_status == false )
 	{
-		printf("ENABLE OFFBOARD MODE\n");
+		//printf("ENABLE OFFBOARD MODE\n");
 
 		// ----------------------------------------------------------------------
 		//   TOGGLE OFF-BOARD MODE
@@ -478,7 +478,7 @@ enable_offboard_control()
 			//throw EXIT_FAILURE;
 		}
 
-		printf("\n");
+		//printf("\n");
 
 	} // end: if not offboard_status
 
@@ -496,7 +496,7 @@ disable_offboard_control()
 	// Should only send this command once
 	if ( control_status == true )
 	{
-		printf("DISABLE OFFBOARD MODE\n");
+		//printf("DISABLE OFFBOARD MODE\n");
 
 		// ----------------------------------------------------------------------
 		//   TOGGLE OFF-BOARD MODE
@@ -514,7 +514,7 @@ disable_offboard_control()
 			//throw EXIT_FAILURE;
 		}
 
-		printf("\n");
+		//printf("\n");
 
 	} // end: if offboard_status
 
@@ -572,20 +572,20 @@ start()
 	//   READ THREAD
 	// --------------------------------------------------------------------------
 
-	printf("START READ THREAD \n");
+	//printf("START READ THREAD \n");
 
 	result = pthread_create( &read_tid, NULL, &start_autopilot_interface_read_thread, this );
 	if ( result ) throw result;
 
 	// now we're reading messages
-	printf("\n");
+	//printf("\n");
 
 
 	// --------------------------------------------------------------------------
 	//   CHECK FOR MESSAGES
 	// --------------------------------------------------------------------------
 
-	printf("CHECK FOR MESSAGES\n");
+	//printf("CHECK FOR MESSAGES\n");
 
 	while ( not current_messages.sysid )
 	{
@@ -594,10 +594,10 @@ start()
 		usleep(500000); // check at 2Hz
 	}
 
-	printf("Found\n");
+	//printf("Found\n");
 
 	// now we know autopilot is sending messages
-	printf("\n");
+	//printf("\n");
 
 
 	// --------------------------------------------------------------------------
@@ -613,7 +613,7 @@ start()
 	if ( not system_id )
 	{
 		system_id = current_messages.sysid;
-		printf("GOT VEHICLE SYSTEM ID: %i\n", system_id );
+		//printf("GOT VEHICLE SYSTEM ID: %i\n", system_id );
 	}
 
 	// Component ID
@@ -649,9 +649,9 @@ start()
 	initial_position.yaw      = local_data.attitude.yaw;
 	initial_position.yaw_rate = local_data.attitude.yawspeed;
 
-	printf("INITIAL POSITION XYZ = [ %.4f , %.4f , %.4f ] \n", initial_position.x, initial_position.y, initial_position.z);
-	printf("INITIAL POSITION YAW = %.4f \n", initial_position.yaw);
-	printf("\n");
+	//printf("INITIAL POSITION XYZ = [ %.4f , %.4f , %.4f ] \n", initial_position.x, initial_position.y, initial_position.z);
+	//printf("INITIAL POSITION YAW = %.4f \n", initial_position.yaw);
+	//printf("\n");
 
 	// we need this before starting the write thread
 
@@ -659,7 +659,7 @@ start()
 	// --------------------------------------------------------------------------
 	//   WRITE THREAD
 	// --------------------------------------------------------------------------
-	printf("START WRITE THREAD \n");
+	//printf("START WRITE THREAD \n");
 
 	result = pthread_create( &write_tid, NULL, &start_autopilot_interface_write_thread, this );
 	if ( result ) throw result;
@@ -669,7 +669,7 @@ start()
 		usleep(100000); // 10Hz
 
 	// now we're streaming setpoint commands
-	printf("\n");
+	//printf("\n");
 
 
 	// Done!
@@ -688,7 +688,7 @@ stop()
 	// --------------------------------------------------------------------------
 	//   CLOSE THREADS
 	// --------------------------------------------------------------------------
-	printf("CLOSE THREADS\n");
+	//printf("CLOSE THREADS\n");
 
 	// signal exit
 	time_to_exit = true;
@@ -698,7 +698,7 @@ stop()
 	pthread_join(write_tid,NULL);
 
 	// now the read and write threads are closed
-	printf("\n");
+	//printf("\n");
 
 	// still need to close the serial_port separately
 }
