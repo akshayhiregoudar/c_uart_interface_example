@@ -244,12 +244,12 @@ commands(Autopilot_Interface &api)
 	//Mavlink_Messages messages = api.current_messages;
 
 	// local position in ned frame
-	mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
+	//mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
 	//printf("Got message LOCAL_POSITION_NED (spec: https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED)\n");
 	//printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
 
 	// hires imu
-	//mavlink_highres_imu_t imu = messages.highres_imu;
+	mavlink_highres_imu_t imu = api.current_messages.highres_imu;
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
 	
