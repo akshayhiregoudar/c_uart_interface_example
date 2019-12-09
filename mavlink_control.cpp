@@ -244,7 +244,7 @@ commands(Autopilot_Interface &api)
 	//Mavlink_Messages messages = api.current_messages;
 
 	// local position in ned frame
-	//mavlink_local_position_ned_t pos = messages.local_position_ned;
+	mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
 	//printf("Got message LOCAL_POSITION_NED (spec: https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED)\n");
 	//printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
 
@@ -255,8 +255,7 @@ commands(Autopilot_Interface &api)
 	
 	for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
 	{	
-		Mavlink_Messages messages = api.current_messages;
-		mavlink_highres_imu_t imu = messages.highres_imu;
+		//mavlink_highres_imu_t imu = messages.highres_imu;
 		
 		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
 		
