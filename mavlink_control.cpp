@@ -267,7 +267,7 @@ commands(Autopilot_Interface &api)
 		printf("mag_y = % f \n", imu.ymag);
 		printf("mag_z = % f \n", imu.zmag);
 		
-		usleep(10);
+		usleep(1000);
 	}
 		
 	
