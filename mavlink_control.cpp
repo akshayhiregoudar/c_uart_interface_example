@@ -241,7 +241,23 @@ commands(Autopilot_Interface &api)
 	//printf("READ SOME MESSAGES \n");
 
 	// copy current messages
-	//Mavlink_Messages messages = api.current_messages;
+	for (int i = 1; i <= 300000; i++)
+	{
+		Mavlink_Messages messages = api.current_messages;
+		mavlink_highres_imu_t imu = messages.highres_imu;
+		for (int i = 1; i <= 2; i++)
+		{// Runtime of 5 minutes (300000 ms)
+		
+			printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
+		
+			printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
+		
+			printf("mag_x = % f, mag_y = %f, mag_z = %f \n", imu.xmag, imu.ymag, imu.zmag); // (Ga)
+		
+			//sleep(0.1);
+		}
+		sleep(1)
+	}
 
 	// local position in ned frame
 	//mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
@@ -249,22 +265,22 @@ commands(Autopilot_Interface &api)
 	//printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
 
 	// hires imu
-	mavlink_highres_imu_t imu = api.current_messages.highres_imu;
+	//mavlink_highres_imu_t imu = messages.highres_imu;
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
 	
-	for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
-	{	
+	//for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
+	//{	
 		//mavlink_highres_imu_t imu = messages.highres_imu;
 		
-		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
+	//	printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
 		
-		printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
+	//	printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
 		
-		printf("mag_x = % f, mag_y = %f, mag_z = %f \n", imu.xmag, imu.ymag, imu.zmag); // (Ga)
+	//	printf("mag_x = % f, mag_y = %f, mag_z = %f \n", imu.xmag, imu.ymag, imu.zmag); // (Ga)
 		
-		sleep(1);
-	}
+	//	sleep(1);
+	//}
 		
 	
 	//printf("    baro:        %f (mBar) \n"  , imu.abs_pressure);
