@@ -255,19 +255,19 @@ commands(Autopilot_Interface &api)
 	
 	for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
 	{
-		printf("acc_x =  % f \n", imu.xacc); // (m/s^2)
-		printf("acc_y =  % f \n", imu.yacc);
-		printf("acc_z =  % f \n", imu.zacc); 
+		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
+		//printf("acc_y =  % f \n", imu.yacc);
+		//printf("acc_z =  % f \n", imu.zacc); 
 	
-		printf("gyro_x = % f \n", imu.xgyro); // (rad/s)
-		printf("gyro_y = % f \n", imu.ygyro);
-		printf("gyro_z = % f \n", imu.zgyro);
+		printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
+		//printf("gyro_y = % f \n", imu.ygyro);
+		//printf("gyro_z = % f \n", imu.zgyro);
 	
-		printf("mag_x = % f \n", imu.xmag); // (Ga)
-		printf("mag_y = % f \n", imu.ymag);
-		printf("mag_z = % f \n", imu.zmag);
+		printf("mag_x = % f, mag_y = %f, mag_z = %f \n", imu.xmag, imu.ymag, imu.zmag); // (Ga)
+		//printf("mag_y = % f \n", imu.ymag);
+		//printf("mag_z = % f \n", imu.zmag);
 		
-		//usleep(10000);
+		sleep(1);
 	}
 		
 	
