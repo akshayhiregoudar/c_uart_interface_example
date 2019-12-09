@@ -255,7 +255,7 @@ commands(Autopilot_Interface &api)
 	
 	for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
 	{	
-		mavlink_highres_imu_t imu = messages.highres_imu;
+		mavlink_highres_imu_t imu = api.current_messages.highres_imu;
 		
 		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
 		
