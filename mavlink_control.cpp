@@ -256,7 +256,7 @@ commands(Autopilot_Interface &api)
 		
 			//sleep(0.1);
 		}
-		sleep(1)
+		sleep(1);
 	}
 
 	// local position in ned frame
