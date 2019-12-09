@@ -249,13 +249,13 @@ commands(Autopilot_Interface &api)
 	//printf("    pos  (NED):  %f %f %f (m)\n", pos.x, pos.y, pos.z );
 
 	// hires imu
-	//mavlink_highres_imu_t imu = messages.highres_imu;
+	mavlink_highres_imu_t imu = api.current_messages.highres_imu;
 	//printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	//printf("    ap time:     %lu \n", imu.time_usec);
 	
 	for (int i = 1; i <= 300000; i++)  // Runtime of 5 minutes (300000 ms)
 	{	
-		mavlink_highres_imu_t imu = api.current_messages.highres_imu;
+		//mavlink_highres_imu_t imu = api.current_messages.highres_imu;
 		
 		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
 		
