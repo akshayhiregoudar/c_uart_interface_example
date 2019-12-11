@@ -230,7 +230,7 @@ commands(Autopilot_Interface &api)
 	//   STOP OFFBOARD MODE
 	// --------------------------------------------------------------------------
 
-	api.disable_offboard_control();
+	//api.disable_offboard_control();
 
 	// now pixhawk isn't listening to setpoint commands
 
@@ -277,7 +277,7 @@ commands(Autopilot_Interface &api)
 
 	printf("\n");
 
-
+	api.disable_offboard_control();
 	// --------------------------------------------------------------------------
 	//   END OF COMMANDS
 	// --------------------------------------------------------------------------
