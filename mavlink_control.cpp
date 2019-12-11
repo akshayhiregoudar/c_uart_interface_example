@@ -216,15 +216,15 @@ commands(Autopilot_Interface &api)
 	// NOW pixhawk will try to move
 
 	// Wait for 8 seconds, check position
-	for (int i=0; i < 8; i++)
+	for (int i=0; i < 10; i++)
 	{
 		mavlink_local_position_ned_t pos = api.current_messages.local_position_ned;
-		Mavlink_Messages messages = api.current_messages;
-		mavlink_highres_imu_t imu = messages.highres_imu;
+		//Mavlink_Messages messages = api.current_messages;
+		//mavlink_highres_imu_t imu = messages.highres_imu;
 		printf("%i CURRENT POSITION XYZ = [ % .4f , % .4f , % .4f ] \n", i, pos.x, pos.y, pos.z);
-		printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", i, imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
-		printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", i, imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
-		printf("mag_x = % f, mag_y = %f, mag_z = %f \n", i, imu.xmag, imu.ymag, imu.zmag); // (Ga)
+		//printf("acc_x =  % f, acc_y = %f, acc_z = %f \n", i, imu.xacc, imu.yacc, imu.zacc); // (m/s^2)
+		//printf("gyro_x = % f, gyro_y = %f, gyro_z = %f \n", i, imu.xgyro, imu.ygyro, imu.zgyro); // (rad/s)
+		//printf("mag_x = % f, mag_y = %f, mag_z = %f \n", i, imu.xmag, imu.ymag, imu.zmag); // (Ga)
 		sleep(1);
 	}
 
