@@ -54,53 +54,9 @@ To stop the program, use the key sequence `Ctrl-C`.
 Here's an example output:
 
 ```
-OPEN PORT
-Connected to /dev/ttyUSB0 with 57600 baud, 8 data bits, no parity, 1 stop bit (8N1)
-
-START READ THREAD 
-
-CHECK FOR HEARTBEAT
-Found
-
-GOT VEHICLE SYSTEM ID: 1
-GOT AUTOPILOT COMPONENT ID: 50
-
-INITIAL POSITION XYZ = [ 8.2935 , -1.1447 , -0.7609 ] 
-INITIAL POSITION YAW = 2.1539 
-
-START WRITE THREAD 
-
-ENABLE OFFBOARD MODE
-
-SEND OFFBOARD COMMANDS
-POSITION SETPOINT XYZ = [ 3.2935 , -6.1447 , -0.7609 ] 
-POSITION SETPOINT YAW = 2.1539 
-0 CURRENT POSITION XYZ = [  8.2935 , -1.1447 , -0.7609 ] 
-1 CURRENT POSITION XYZ = [  8.2935 , -1.1447 , -0.7609 ] 
-2 CURRENT POSITION XYZ = [  8.2524 , -1.1444 , -0.7667 ] 
-3 CURRENT POSITION XYZ = [  8.2205 , -1.1431 , -0.7747 ] 
-4 CURRENT POSITION XYZ = [  8.1920 , -1.1421 , -0.7737 ] 
-5 CURRENT POSITION XYZ = [  8.1920 , -1.1421 , -0.7737 ] 
-6 CURRENT POSITION XYZ = [  8.1539 , -1.1414 , -0.7847 ] 
-7 CURRENT POSITION XYZ = [  8.1522 , -1.1417 , -0.7820 ] 
-
-DISABLE OFFBOARD MODE
-
-READ SOME MESSAGES 
-Got message LOCAL_POSITION_NED (spec: https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED)
-    pos  (NED):  8.152975 -1.141093 -0.784075 (m)
-Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)
-    ap time:     3611390110 
-    acc  (NED):   0.005503  0.044659 -9.740363 (m/s^2)
-    gyro (NED):  -0.003064  0.003857  0.000005 (rad/s)
-    mag  (NED):  -0.117767 -0.335362 -0.253204 (Ga)
-    baro:        1020.519958 (mBar) 
-    altitude:    -60.341393 (m) 
-    temperature: 46.779999 C 
-
-CLOSE THREADS
-
-CLOSE PORT
+acc_x =  -0.029962, acc_y = 0.043109, acc_z = -9.807425
+gyro_x =  0.000344, gyro_y = 0.001146, gyro_z = -0.000234
+mag_x = -0.205966, mag_y = -0.249400, mag_z = 0.353236
 ```
 
 Exploration
