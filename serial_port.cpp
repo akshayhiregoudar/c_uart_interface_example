@@ -270,7 +270,7 @@ void
 Serial_Port::
 close_serial()
 {
-	printf("CLOSE PORT\n");
+	//printf("CLOSE PORT\n");
 
 	int result = close(fd);
 
