@@ -62,7 +62,7 @@
 #include <pthread.h> // This uses POSIX Threads
 #include <signal.h>
 
-#include <common/mavlink.h>
+#include "./mavlink/include/mavlink/v2.0/common/mavlink.h"
 
 
 // ------------------------------------------------------------------------------

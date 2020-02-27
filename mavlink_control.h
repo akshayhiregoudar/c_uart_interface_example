@@ -64,10 +64,15 @@
 #include <time.h>
 #include <sys/time.h>
 
+#include <vector>
+#include <utility>
+
 using std::string;
 using namespace std;
 
-#include <common/mavlink.h>
+
+
+#include "/home/jarv1s/pixhawk_sensor_data/mavlink/include/mavlink/v2.0/common/mavlink.h"
 
 #include "autopilot_interface.h"
 #include "serial_port.h"
